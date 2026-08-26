@@ -1,0 +1,59 @@
+generated: '2026-08-26'
+method: probed
+source: live HTTPS probes of https://nuprobe.com (the only host NuProbe publishes)
+note: >-
+  Every /.well-known/ path on nuprobe.com answered HTTP 526 (Cloudflare "Invalid SSL certificate"
+  at the origin) during this pass — the whole host, including the homepage, is returning 526, so
+  this is an origin outage rather than a per-path result. Internet Archive CDX records show the
+  same paths returning HTTP 404 when the site was healthy (security.txt, openid-configuration,
+  ai-plugin.json, trust.txt, nodeinfo, dnt-policy.txt, gpc.json, assetlinks.json — all 404 in
+  2023 captures), and the homepage last archived HTTP 200 on 2026-06-08. No .well-known document
+  has ever been served, so NO WellKnown or SecurityTxt pointer is wired in apis.yml; this file
+  records the absence, it does not assert a surface.
+hosts:
+- host: nuprobe.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 526
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 526
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 526
+    file: null
+  - path: /.well-known/oauth-protected-resource
+    status: 526
+    file: null
+  - path: /.well-known/api-catalog
+    status: 526
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 526
+    file: null
+  - path: /.well-known/agent-card.json
+    status: 526
+    file: null
+  - path: /.well-known/agent.json
+    status: 526
+    file: null
+historic:
+- source: http://web.archive.org/cdx/search/cdx?url=nuprobe.com/.well-known*
+  observed: '2023-06'
+  results:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/trust.txt
+    status: 404
+  - path: /.well-known/nodeinfo
+    status: 404
+  - path: /.well-known/dnt-policy.txt
+    status: 404
+  - path: /.well-known/gpc.json
+    status: 404
+  - path: /.well-known/assetlinks.json
+    status: 404

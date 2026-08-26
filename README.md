@@ -64,5 +64,14 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-NuProbe is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+NuProbe is a genomics and molecular diagnostics company founded in 2016 on technology licensed from
+the Wyss Institute at Harvard University and Rice University, headquartered in Shanghai, China with a
+US subsidiary, NuProbe USA, in Houston, Texas. Its core chemistries are Blocker Displacement
+Amplification (BDA) and Quantitative Amplicon Sequencing (QASeq), sold as research-use assay panels
+for oncology and reproductive health, custom assay development, and biopharma services.
+
+**No API surface.** NuProbe publishes no API, SDK, developer portal, or machine-readable
+specification. Its bioinformatics and primer-design algorithms ship inside its assays and services.
+See the `x-coverage` block in `apis.yml` for the probes behind that finding.
+
+- https://nuprobe.com/

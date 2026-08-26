@@ -1,17 +1,37 @@
 aid: nuprobe
 name: NuProbe
-description: 'NuProbe is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  NuProbe is a genomics and molecular diagnostics company founded in 2016 on technology licensed
+  from the Wyss Institute at Harvard University and Rice University, with headquarters in Shanghai,
+  China and a US subsidiary, NuProbe USA, in Houston, Texas. Its two core chemistries are Blocker
+  Displacement Amplification (BDA), which enriches low-frequency DNA variants ahead of sequencing or
+  PCR, and Quantitative Amplicon Sequencing (QASeq), a UMI-based multiplexed amplicon method for the
+  simultaneous ultrasensitive detection of mutations and copy number variations from FFPE tissue,
+  fresh or frozen tissue and cell-free DNA. The company sells research-use assay panels for oncology
+  and reproductive health, custom assay development, and biopharma services, and has licensed or
+  co-developed its chemistry with Bio-Rad, Oxford Nanopore, QIAGEN, Illumina and Bionano. NuProbe is
+  an assay and reagent company: its bioinformatics and primer-design algorithms are delivered inside
+  its products and services rather than as a public developer platform, and it publishes no API,
+  SDK, developer portal or machine-readable specification of any kind.
 url: https://raw.githubusercontent.com/api-evangelist/nuprobe/refs/heads/main/apis.yml
+image: https://nuprobe.com/wp-content/uploads/2021/04/NuProbe-PMS-Logo_for-website.png
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
+x-tier: profiled
+x-tier-reason: enrichment-pass
 specificationVersion: '0.20'
 created: '2026-08-26'
 modified: '2026-08-26'
 tags:
 - Company
+- Life Sciences
+- Genomics
+- Molecular Diagnostics
+- Next-Generation Sequencing
+- Oncology
+- Biotechnology
+- Precision Medicine
+- Laboratory
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -20,4 +40,41 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://nuprobe.com/
+- type: Blog
+  url: https://nuprobe.com/all-news/
+- type: Support
+  url: https://nuprobe.com/contact_us/
+- type: PrivacyPolicy
+  url: https://nuprobe.com/privacy-policy/
+- type: TermsOfService
+  url: https://nuprobe.com/nuprobe-usa-terms-and-conditions/
+- type: DomainSecurity
+  url: security/nuprobe-domain-security.yml
+x-enrichment:
+  date: '2026-08-26'
+  status: minimal
+  artifacts_added: 2
+  pass: local-v1
+x-coverage:
+  state: none
+  reason: not-a-software-company
+  detail: >-
+    NuProbe sells BDA and QASeq molecular-diagnostics assay kits, custom assay development and
+    biopharma lab services rather than software; 1,199 archived URLs for nuprobe.com contain no
+    /developers, /docs, /api, swagger, openapi or graphql path, both company GitHub organizations
+    (NuProbeUSA, NuProbe-Bioinfo) hold zero public repositories, no nuprobe package exists on npm,
+    PyPI, crates.io or RubyGems, and the marketing site itself is additionally returning a
+    Cloudflare 526 origin error on every path during this pass.
+  evidence:
+  - url: https://nuprobe.com/openapi.json
+    status: 526
+  - url: https://nuprobe.com/.well-known/api-catalog
+    status: 526
+  - url: http://web.archive.org/cdx/search/cdx?url=nuprobe.com*&output=text&fl=original,statuscode&collapse=urlkey&limit=3000
+    status: 200
+  - url: https://api.github.com/orgs/NuProbeUSA/repos
+    status: 200
+  - url: https://registry.npmjs.org/-/v1/search?text=nuprobe
+    status: 200
+  checked: '2026-08-26'
